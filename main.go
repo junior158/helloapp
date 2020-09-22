@@ -2,6 +2,9 @@ package main
 
 import (
     "net/http"
+    "math/rand"
+    "time"
+    "fmt"
 )
 
 // create a handler struct
@@ -10,8 +13,21 @@ type HttpHandler struct{}
 // implement `ServeHTTP` method on `HttpHandler` struct
 func (h HttpHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 
+    // create a slice of emoticons
+    emoticons := make([]string, 0)
+    emoticons = append(emoticons,
+        "🦄", "🦏", "🦚", "🐧", "🦩",
+        "🐦", "🐬", "🐛", "🐞", "🦔",
+        "🐮", "😻", "🐇", "🐰", "🐱",
+        "🦇", "🦆", "🦢", "🕊", "🦐",
+        "🦦", "🐶", "🐴", "🐵", "😸",
+        "🦏", "🐌", "🐤", "🦦", "🐎")
+
+    rand.Seed(time.Now().Unix())
+    message := fmt.Sprint("Have a ❤️  day !", emoticons[rand.Intn(len(emoticons))])
+
     // create response binary data
-    data := []byte("Have a ❤️ day ! 🦄🦄🦄") // slice of bytes
+    data := []byte(message) // slice of bytes
 
     // write `data` to response
     res.Write(data)
