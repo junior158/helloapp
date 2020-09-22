@@ -3,4 +3,5 @@ COPY main /
 RUN apt-get update && apt-get install -y \
     ncat iproute2 socat nmap openssh-client mtr iputils-ping wget curl vim \
  && rm -rf /var/lib/apt/lists/*
+RUN chmod +x /main
 CMD /main
