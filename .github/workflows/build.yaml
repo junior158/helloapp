@@ -38,9 +38,9 @@ jobs:
     - name: Run build
       run: go build main.go
       
-    # Run build of the application
-    - name: Ls build
-      run: ls
+    # Chmod binary
+    - name: chmod binary
+      run: chmod +x main
 
     # Persist the artifact
     - name: Upload binary
