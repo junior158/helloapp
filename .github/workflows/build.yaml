@@ -11,6 +11,7 @@ on:
     - staging
     - develop
     tags:
+    - *
   pull_request:
     branches:
     - master
