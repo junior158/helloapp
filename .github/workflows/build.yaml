@@ -36,8 +36,12 @@ jobs:
     
     # Run build of the application
     - name: Run build
-      run: go build . 
+      run: go build main.go
       
+    # Run build of the application
+    - name: Ls build
+      run: ls
+
     # Persist the artifact
     - name: Upload binary
       uses: actions/upload-artifact@v2
