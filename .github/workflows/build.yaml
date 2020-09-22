@@ -34,6 +34,13 @@ jobs:
       with:
         go-version: '1.14.0' # The Go version to download (if necessary) and use.
     
+    # Persist the artifact
+    - name: Upload binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: main-binary
+        path: main
+
     # Install all the dependencies
     #- name: Install dependencies
     #  run: |
@@ -62,6 +69,12 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }} # Only run this workflow if it is master branch on push event
     steps:
     - uses: actions/checkout@v2
+
+    # Download build artifact
+    - name: Download main binary
+      uses: actions/download-artifact@v2
+      with:
+        name: main-binary
 
     # Deploy to Docker registry
     - name: Deploy to Docker registry
