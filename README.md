@@ -1,6 +1,6 @@
 # Intro
 
-This applications displays `Hello World! ❤️`  messages with UTF-8 emoticons.
+This applications displays `Have a nice {emoticon} day` random messages with UTF-8 emoticons.
 
 # Important note
 
